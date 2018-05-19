@@ -1,0 +1,33 @@
+{
+  "name": "building-renderless-components-to-handle-crud-operations-in-vue",
+  "version": "0.1.0",
+  "author": "Markus Oberlehner",
+  "homepage": "https://github.com/maoberlehner/building-renderless-components-to-handle-crud-operations-in-vue",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve --open",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "vue": "^2.5.16"
+  },
+  "devDependencies": {
+    "@avalanche/eslint-config": "^2.0.0",
+    "@vue/cli-plugin-babel": "^3.0.0-beta.10",
+    "@vue/cli-plugin-eslint": "^3.0.0-beta.10",
+    "@vue/cli-service": "^3.0.0-beta.10",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-vue": "^4.5.0",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "vue-template-compiler": "^2.5.13"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
