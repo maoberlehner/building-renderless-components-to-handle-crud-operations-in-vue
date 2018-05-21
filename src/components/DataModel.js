@@ -1,15 +1,15 @@
-import DataProvider from './DataProvider';
+import queryMixin from './mixins/query';
 
 export default {
-  extends: DataProvider,
+  mixins: [queryMixin],
   props: {
+    // Make it possible to (optinally) provide
+    // initial data via an entity property.
     entity: {
       type: Object,
     },
-    fetch: {
-      type: Boolean,
-      default: false,
-    },
+    // By providing an initial ID, we can link
+    // the model instance with a specific record.
     id: {
       type: [Number, String],
     },
@@ -20,6 +20,9 @@ export default {
     };
   },
   created() {
+    // If an ID but no initial data entity
+    // was provided, the specified record
+    // is fetched from the API.
     if (this.id && !this.data) this.find();
   },
   methods: {
@@ -41,7 +44,6 @@ export default {
       create: this.create,
       data: this.data,
       destroy: this.destroy,
-      find: this.find,
       loading: this.loading,
       update: this.update,
     });

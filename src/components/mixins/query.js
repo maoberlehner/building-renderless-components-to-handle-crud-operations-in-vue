@@ -4,33 +4,31 @@ export default {
   props: {
     basUrl: {
       type: String,
+      // The JSONPlaceholder API is a fake API
+      // basically a Lorem Ipsum JSON API.
       default: `https://jsonplaceholder.typicode.com`,
     },
     endpoint: {
       type: String,
       required: true,
     },
-    fetch: {
-      type: Boolean,
-      default: true,
-    },
-    filter: {
-      type: Object,
-    },
   },
   data() {
     return {
+      // Create a new axios instance.
+      // See: https://github.com/axios/axios#creating-an-instance
       api: axios.create({ baseURL: this.basUrl }),
       data: null,
       error: null,
       loading: false,
     };
   },
-  created() {
-    if (this.fetch) this.findAll(this.filter);
-  },
   methods: {
+    // The `query` method will handle
+    // different query types for us.
     async query(type, ...params) {
+      // If we're currently loading content
+      // we don't submit an additional request.
       if (this.loading) return;
 
       this.loading = true;
@@ -46,16 +44,5 @@ export default {
       }
       this.loading = false;
     },
-    findAll(params) {
-      return this.query(`get`, this.endpoint, { params });
-    },
-  },
-  render() {
-    return this.$scopedSlots.default({
-      data: this.data,
-      error: this.error,
-      findAll: this.findAll,
-      loading: this.loading,
-    });
   },
 };

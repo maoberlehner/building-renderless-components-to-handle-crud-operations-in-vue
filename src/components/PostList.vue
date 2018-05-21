@@ -18,9 +18,11 @@
             <p>{{ post.body }}</p>
             <button
               :disabled="loading"
-              @click="destroy">
-              Delete
-              <span v-if="loading">SPINNER TODO</span>
+              class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded mt-4"
+              @click="destroy"
+            >
+              <template v-if="loading">Loading...</template>
+              <template v-else>Delete</template>
             </button>
           </div>
         </data-model>
