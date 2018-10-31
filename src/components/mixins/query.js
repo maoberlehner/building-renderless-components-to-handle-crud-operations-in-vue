@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default {
   props: {
-    basUrl: {
+    baseUrl: {
       type: String,
       // The JSONPlaceholder API is a fake API
       // basically a Lorem Ipsum JSON API.
@@ -17,7 +17,7 @@ export default {
     return {
       // Create a new axios instance.
       // See: https://github.com/axios/axios#creating-an-instance
-      api: axios.create({ baseURL: this.basUrl }),
+      api: axios.create({ baseURL: this.baseUrl }),
       data: null,
       error: null,
       loading: false,
